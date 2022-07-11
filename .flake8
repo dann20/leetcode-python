@@ -1,0 +1,5 @@
+[flake8]
+# E501: line too long
+# E741: ambiguous variable name
+ignore = E741
+extend-ignore = E501

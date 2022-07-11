@@ -1,3 +1,7 @@
 [tool.pytest.ini_options]
 testpaths = "src"
 python_files = "*.py"
+
+[tool.pyright]
+reportOptionalMemberAccess = false
+reportGeneralTypeIssues = false
