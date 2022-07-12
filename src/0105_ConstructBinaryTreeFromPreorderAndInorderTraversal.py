@@ -7,22 +7,10 @@ class Solution:
             return None
 
         root = TreeNode(preorder[0])
-        traversed = set()
+        cut_point = inorder.index(preorder[0])
 
-        idx = 0
-        while idx < len(inorder) and inorder[idx] != root.val:
-            traversed.add(inorder[idx])
-            idx += 1
-        idx_inorder = idx
-
-        idx = 1
-        while idx < len(preorder) and preorder[idx] in traversed:
-            idx += 1
-        idx_preorder = idx
-
-        root.left = self.buildTree(preorder[1:idx_preorder], inorder[:idx_inorder])
-        root.right = self.buildTree(preorder[idx_preorder:], inorder[idx_inorder + 1:])
-
+        root.left = self.buildTree(preorder[1:cut_point + 1], inorder[:cut_point])
+        root.right = self.buildTree(preorder[cut_point + 1:], inorder[cut_point + 1:])
         return root
 
 

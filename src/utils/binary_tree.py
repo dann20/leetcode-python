@@ -8,7 +8,7 @@ class TreeNode:
         return f"(Val: {self.val}\tLeft: {self.left}\tRight: {self.right})"
 
 
-def to_tree(nums: list[int]) -> TreeNode:
+def to_tree(nums: list[int]) -> TreeNode | None:
     """
     Convert a breadth-first traversal list (including NULL) to a binary tree.
     Inverse operation of to_breadth_first_list function.
@@ -26,6 +26,9 @@ def to_tree(nums: list[int]) -> TreeNode:
     """
     if not nums:
         return None
+    elif len(nums) == 2:
+        return TreeNode(nums[0], TreeNode(nums[1]))
+
     root = TreeNode(nums[0])
     queue = [root]
     i = 1
@@ -42,7 +45,7 @@ def to_tree(nums: list[int]) -> TreeNode:
     return root
 
 
-def to_breadth_first_list(root: TreeNode) -> list[int]:
+def to_breadth_first_list(root: TreeNode | None) -> list[int]:
     """
     Convert a binary tree to a breadth-first traversal list (not including NULL).
     (Leetcode style without NULL)
@@ -73,7 +76,7 @@ def to_breadth_first_list(root: TreeNode) -> list[int]:
     return res
 
 
-def to_preorder_list(root: TreeNode) -> list[int]:
+def to_preorder_list(root: TreeNode | None) -> list[int]:
     """
     Convert a binary tree to a preorder list (not including NULL).
     (child to parent, left to right)

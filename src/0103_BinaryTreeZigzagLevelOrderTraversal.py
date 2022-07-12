@@ -21,7 +21,7 @@ class Solution:
             level = new_level
 
         # remove None in each level
-        res = [[val for val in level if val is not None] for level in res]
+        res = [[val for val in level if val] for level in res]
 
         # remove empty level
         res = [level for level in res if level]
