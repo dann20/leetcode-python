@@ -3,25 +3,21 @@ from utils.binary_tree import TreeNode, to_tree
 
 class BSTIterator:
     def __init__(self, root: TreeNode | None) -> None:
-        def inorder(root: TreeNode | None) -> list[int]:
-            if not root:
-                return []
-            return inorder(root.left) + [root.val] + inorder(root.right)
-
-        inorder = inorder(root)
-        self.inorder_iter = iter(inorder)
-        self.length = len(inorder)
-        self.count = 0
+        self.stack = list()
+        self.push_all(root)
 
     def next(self) -> int:
-        self.count += 1
-        return next(self.inorder_iter)
+        tmp = self.stack.pop()
+        self.push_all(tmp.right)
+        return tmp.val
 
     def hasNext(self) -> bool:
-        if self.count < self.length:
-            return True
-        else:
-            return False
+        return bool(self.stack)
+
+    def push_all(self, root):
+        while root:
+            self.stack.append(root)
+            root = root.left
 
 
 def test_bstiterator():

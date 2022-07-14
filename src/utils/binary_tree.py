@@ -7,6 +7,12 @@ class TreeNode:
     def __str__(self) -> str:
         return f"(Val: {self.val}\tLeft: {self.left}\tRight: {self.right})"
 
+    def __eq__(self, other) -> bool:
+        return self.val == other.val and self.left == other.left and self.right == other.right
+
+    def __ne__(self, other) -> bool:
+        return self.val != other.val or self.left != other.left or self.right != other.right
+
 
 def to_tree(nums: list[int]) -> TreeNode | None:
     """
@@ -34,11 +40,11 @@ def to_tree(nums: list[int]) -> TreeNode | None:
     i = 1
     while queue and i < len(nums):
         node = queue.pop(0)
-        if nums[i]:
+        if nums[i] is not None:
             node.left = TreeNode(nums[i])
             queue.append(node.left)
         i += 1
-        if nums[i]:
+        if nums[i] is not None:
             node.right = TreeNode(nums[i])
             queue.append(node.right)
         i += 1
@@ -111,3 +117,5 @@ if __name__ == "__main__":
 
     print(to_breadth_first_list(to_tree([1, 2, 3, 4, 5, 6, 7])))
     print(to_breadth_first_list(to_tree([1, 2, 3, 4, None, 6, None])))
+    print(root == to_tree([1, 2, 3, 4, 5, 6, 7]))
+    print(root != to_tree([1, 2, 3, 4, 9, 6, 8]))
