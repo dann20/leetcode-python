@@ -8,9 +8,13 @@ class TreeNode:
         return f"(Val: {self.val}\tLeft: {self.left}\tRight: {self.right})"
 
     def __eq__(self, other) -> bool:
+        if other is None:
+            return False
         return self.val == other.val and self.left == other.left and self.right == other.right
 
     def __ne__(self, other) -> bool:
+        if other is None:
+            return True
         return self.val != other.val or self.left != other.left or self.right != other.right
 
 

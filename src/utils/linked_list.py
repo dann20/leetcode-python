@@ -3,6 +3,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __eq__(self, other) -> bool:
+        if other is None:
+            return False
+        return self.val == other.val and self.next == other.next
+
 
 def to_linked_list(nums: list) -> ListNode | None:
     if not nums:
