@@ -2,7 +2,7 @@ class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         hash_tbl = dict()
         for idx, val in enumerate(nums):
-            if target - val in hash_tbl.keys():
+            if target - val in hash_tbl:
                 return [hash_tbl[target - val], idx]
             else:
                 hash_tbl[val] = idx
