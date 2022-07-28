@@ -3,8 +3,8 @@ class Solution:
         bulls = 0
         cows = 0
         count = [0] * 10
-        for s, g in zip(secret, guess):
-            s, g = int(s), int(g)
+        for s_str, g_str in zip(secret, guess):
+            s, g = int(s_str), int(g_str)
             if s == g:
                 bulls += 1
             else:

@@ -5,9 +5,9 @@ class Codec:
     def serialize(self, root: TreeNode | None) -> str:
         if not root:
             return ""
-        new_level = []
-        cur_level = [root]
-        res = []
+        new_level: list[TreeNode | None] = []
+        cur_level: list[TreeNode | None] = [root]
+        res: list[list[int | None]] = []
         while any(cur_level):
             res.append([])
             for node in cur_level:
@@ -15,21 +15,21 @@ class Codec:
                     res[-1].append(node.val)
                     new_level.append(node.left)
                     new_level.append(node.right)
-                else:
+                elif node is None:
                     res[-1].append(node)
             cur_level = new_level
             new_level = []
 
-        res = [",".join([str(num) if num is not None else "n" for num in level]) for level in res]
+        res: list[str] = [",".join([str(num) if num is not None else "n" for num in level]) for level in res]
         return " ".join(res)
 
     def deserialize(self, data: str) -> TreeNode | None:
         if not data:
             return None
 
-        data = data.split(" ")
-        data = [level.split(",") for level in data]
-        data = [[int(num) if num != "n" else None for num in level] for level in data]
+        data: list[str] = data.split(" ")
+        data: list[list[str]] = [level.split(",") for level in data]
+        data: list[list[int | None]] = [[int(num) if num != "n" else None for num in level] for level in data]
 
         root = TreeNode(data[0][0])
         cur_level = [root]

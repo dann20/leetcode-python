@@ -12,7 +12,10 @@ class Solution:
         return editor(s) == editor(t)
 
     def follow_up(self, s: str, t: str) -> bool:
-        def gen_next(input: str) -> str:
+        from typing import Generator
+        from itertools import zip_longest
+
+        def gen_next(input: str) -> Generator[str, None, None]:
             skip = 0
             for c in reversed(input):
                 if c == "#":
@@ -22,7 +25,6 @@ class Solution:
                 else:
                     yield c
 
-        from itertools import zip_longest
         return all(x == y for x, y in zip_longest(gen_next(s), gen_next(t)))
 
 

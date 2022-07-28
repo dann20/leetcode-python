@@ -1,7 +1,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         res = 0
-        freq_tbl = {}
+        freq_tbl: dict[str, int] = {}
         left = 0
         max_freq = 0
         for right in range(len(s)):

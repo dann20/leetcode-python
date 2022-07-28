@@ -13,17 +13,17 @@ class Solution:
         return len(waiting[None])
 
     def slow_and_dumb(self, s: str, words: list[str]) -> int:
-        s = list(s)
+        lst_s = list(s)
         count = 0
 
         for word in words:
-            word = list(word)
+            lst_word = list(word)
             count += 1
             prev_idx = -1
-            for c in word:
-                if c in s[prev_idx + 1:]:
-                    prev_idx = s.index(c, prev_idx + 1)
-                elif c not in s[prev_idx + 1:]:
+            for c in lst_word:
+                if c in lst_s[prev_idx + 1:]:
+                    prev_idx = lst_s.index(c, prev_idx + 1)
+                elif c not in lst_s[prev_idx + 1:]:
                     count -= 1
                     break
 

@@ -3,7 +3,8 @@ class Solution:
         if len(p) > len(s):
             return []
 
-        p_dict, sub_dict = dict(), dict()
+        p_dict: dict[str, int] = dict()
+        sub_dict: dict[str, int] = dict()
         for i in range(len(p)):
             p_dict[p[i]] = p_dict.get(p[i], 0) + 1
             sub_dict[s[i]] = sub_dict.get(s[i], 0) + 1

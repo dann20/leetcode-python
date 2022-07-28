@@ -1,6 +1,6 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        map = dict()
+        map: dict[str, str] = dict()
         for idx, c in enumerate(s):
             if c not in map:
                 if t[idx] not in map.values():
@@ -13,7 +13,7 @@ class Solution:
         return True
 
     def using_match(self, s: str, t: str) -> bool:
-        map = dict()
+        map: dict[str, str] = dict()
         for idx, c in enumerate(s):
             match (c in map, map.get(c, None) == t[idx], t[idx] in map.values()):
                 case (False, _, False): map[c] = t[idx]

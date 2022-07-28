@@ -6,7 +6,7 @@ class Solution:
         if not root:
             return []
         res = []
-        stack = []
+        stack: list[TreeNode] = []
         while root or stack:
             while root:
                 stack.append(root)

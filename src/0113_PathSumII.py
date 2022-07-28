@@ -14,7 +14,7 @@ class Solution:
             if root.right:
                 dfs(root.right, res, c(path))
 
-        res = []
+        res: list[list[int]] = []
         if not root:
             return res
 

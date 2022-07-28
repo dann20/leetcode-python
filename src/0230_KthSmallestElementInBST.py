@@ -8,8 +8,8 @@ class Solution:
                 return []
             return inorder(root.left) + [root.val] + inorder(root.right)
 
-        inorder = inorder(root)
-        return inorder[k - 1]
+        inorder_list = inorder(root)
+        return inorder_list[k - 1]
 
 
 def test_kth_smallest():

@@ -1,6 +1,6 @@
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        hash_tbl = dict()
+        hash_tbl: dict[int, int] = dict()
         for idx, val in enumerate(nums):
             if target - val in hash_tbl:
                 return [hash_tbl[target - val], idx]

@@ -2,7 +2,7 @@ class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         from heapq import heapify, heappop
 
-        map = dict()
+        map: dict[int, int] = dict()
         for num in nums:
             map[num] = map.get(num, 0) + 1
 
@@ -20,11 +20,11 @@ class Solution:
         return res
 
     def use_bucket_sort(self, nums: list[int], k: int) -> list[int]:
-        map = dict()
+        map: dict[int, int] = dict()
         for num in nums:
             map[num] = map.get(num, 0) + 1
 
-        counts = [[] for _ in range(len(nums))]  # 0-indexed
+        counts: list[list[int]] = [[] for _ in range(len(nums))]  # 0-indexed
         for num, freq in map.items():
             counts[freq - 1].append(num)
 

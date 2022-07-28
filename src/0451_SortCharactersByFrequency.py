@@ -1,6 +1,6 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        map = dict()
+        map: dict[str, int] = dict()
         for c in s:
             map[c] = map.get(c, 0) + 1
 

@@ -14,7 +14,7 @@ class Solution:
         # BEST. O(n*logn)
         from bisect import bisect_left
 
-        sub = []
+        sub: list[int] = []
         for num in nums:
             if not sub or sub[-1] < num:
                 sub.append(num)
@@ -26,7 +26,7 @@ class Solution:
 
     def submitted_dtl(self, nums: list[int]) -> int:
         # Same idea as patience algo but slower. O(n*m) (m is the length of sub)
-        sub = []
+        sub: list[int] = []
         for num in nums:
             pos, len_sub = 0, len(sub)
             while pos <= len_sub:

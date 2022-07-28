@@ -3,7 +3,7 @@ from utils.binary_tree import TreeNode, to_tree
 
 class BSTIterator:
     def __init__(self, root: TreeNode | None) -> None:
-        self.stack = list()
+        self.stack: list[TreeNode] = list()
         self.push_all(root)
 
     def next(self) -> int:

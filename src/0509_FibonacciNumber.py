@@ -2,7 +2,7 @@ from functools import lru_cache
 
 
 class Solution:
-    cache = {}
+    cache: dict[int, int] = {}
 
     def fib(self, n: int) -> int:
         if n <= 1:

@@ -15,7 +15,7 @@ class Solution:
     def iterative_isValidBST(self, root: TreeNode | None) -> bool:
         if not root:
             return True
-        stack = []
+        stack: list[TreeNode] = []
         prev = None
         while root or stack:
             while root:
