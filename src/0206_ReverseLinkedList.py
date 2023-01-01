@@ -6,7 +6,8 @@ class Solution:
         if not head:
             return None
 
-        prev, cur = None, head
+        prev = None
+        cur: ListNode | None = head
         while cur:
             next_node = cur.next
             cur.next = prev
@@ -25,14 +26,35 @@ class Solution:
 
 
 def test_reverse_list():
-    assert to_list(Solution().reverseList(to_linked_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1]
-    assert to_list(Solution().reverseList(to_linked_list([1, 2, 3, 4, 5, 6]))) == [6, 5, 4, 3, 2, 1]
+    assert to_list(Solution().reverseList(to_linked_list([1, 2, 3, 4, 5]))) == [
+        5,
+        4,
+        3,
+        2,
+        1,
+    ]
+    assert to_list(Solution().reverseList(to_linked_list([1, 2, 3, 4, 5, 6]))) == [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+    ]
     assert to_list(Solution().reverseList(to_linked_list([]))) == []
     assert to_list(Solution().reverseList(to_linked_list([1]))) == [1]
 
 
 def test_recursive_reverse():
-    assert to_list(Solution().recursive_reverse(to_linked_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1]
-    assert to_list(Solution().recursive_reverse(to_linked_list([1, 2, 3, 4, 5, 6]))) == [6, 5, 4, 3, 2, 1]
+    assert to_list(Solution().recursive_reverse(to_linked_list([1, 2, 3, 4, 5]))) == [
+        5,
+        4,
+        3,
+        2,
+        1,
+    ]
+    assert to_list(
+        Solution().recursive_reverse(to_linked_list([1, 2, 3, 4, 5, 6]))
+    ) == [6, 5, 4, 3, 2, 1]
     assert to_list(Solution().recursive_reverse(to_linked_list([]))) == []
     assert to_list(Solution().recursive_reverse(to_linked_list([1]))) == [1]
