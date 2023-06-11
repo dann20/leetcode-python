@@ -1,6 +1,0 @@
-[flake8]
-# E501: line too long
-# E741: ambiguous variable name
-# W503: line break before binary operator (soon to be favored pattern)
-ignore = E741, W503
-extend-ignore = E501
